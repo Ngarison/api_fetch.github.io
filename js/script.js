@@ -12,8 +12,14 @@ function getCode(){
         fetch(url).then(function(response){
             return response.json();
         }).then(function(data){
-            console.log(data);
-        })
+            let html='<div class="results">';
+                   html+=`<div class="nom"><span>Nom:</span>${data[0].nom}</div>`;
+                   html+=`<div class="code"><span>Code:</span>${data[0].code}</div>`;
+                   html+=`<div class="population"><span>Population:</span>${data[0].population}</div>`;
+                   html+="</div>"
+                   document.getElementById("container-results").innerHTML=html;
+                   console.log(data);
+        }).catch(err=>{console.log("Erreur :"+err);})
         }
 }
 
